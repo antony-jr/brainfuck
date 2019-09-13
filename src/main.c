@@ -1,16 +1,18 @@
-#include <stack.h>
+#include <stdlib.h>
+#include <parser.h>
+#include <executor.h>
 #include <stdio.h>
 
-int main(){
-	char *a1 = "Hello";
-	char *a2 = "World";
-	stack_push(a1);
-	stack_push(a2);
-
-	char *ptr = NULL;
-	stack_pop(&ptr);
-	printf("%s\n", ptr);
-	stack_pop(&ptr);
-	printf("%s\n", ptr);
+int main(int ac, char **av){
+	if(ac == 1){
+		return 0;
+	}
+	FILE *fp = fopen(av[1], "r");
+	if(!fp){
+		perror("cannot open file!");
+		return -1;
+	}
+	exec(parse_file(fp));
+	fclose(fp);
 	return 0;
 }

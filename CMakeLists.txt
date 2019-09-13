@@ -18,9 +18,13 @@ if(GIT_COMMIT_STR)
 	add_definitions(-DGIT_COMMIT_STR="${GIT_COMMIT_STR}")
 endif()
 
-add_executable(brainfuck src/main.c
+add_executable(brainfuck src/stack.c
+			 src/executor.c
+			 src/parser.c
+			 src/main.c
 			 include/stack.h
-			 src/stack.c)
+			 include/executor.h
+			 include/parser.h)
 
 target_link_libraries(brainfuck PUBLIC m)
 target_include_directories(brainfuck PUBLIC . include)
