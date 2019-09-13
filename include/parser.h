@@ -9,7 +9,6 @@
 #define CLOSE_LOOP 4
 #define PRINT_CELL 5
 #define GET_CELL 6
-int *parse_str(const char *,size_t);
+int *parse_str(const char *);
 int *parse_file(FILE *fp);
-
-#endif /* PARSER_H_INCLUDED */ 
+#endif /* PARSER_H_INCLUDED */
