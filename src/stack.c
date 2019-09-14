@@ -1,5 +1,6 @@
 #include <stack.h>
 #include <stdlib.h>
+#define MAX_STACK_SIZE 1024
 #define LIMIT MAX_STACK_SIZE-1
 static int top = -1;
 static int data[MAX_STACK_SIZE];

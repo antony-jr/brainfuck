@@ -2,8 +2,7 @@
 #include <parser.h>
 #include <inttypes.h>
 #include <unistd.h>
-#include <stdlib.h>
-
+#define TAPE_SIZE 30000
 #define LIMIT TAPE_SIZE-1
 static uint8_t tape[TAPE_SIZE] = {0};
 
@@ -54,6 +53,5 @@ int exec(int *inst) {
         }
         iter += 2;
     }
-    free(inst);
     return 0;
 }

@@ -1,3 +1,4 @@
+#!/usr/bin/env brainfuck
 [
     This routine is a demonstration of checking for the three cell sizes
     that are normal for Brainfuck. The demo code also checks for bugs

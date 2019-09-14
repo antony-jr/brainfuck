@@ -1,7 +1,6 @@
 #ifndef PARSER_H_INCLUDED
 #define PARSER_H_INCLUDED
 #include <stdio.h>
-
 #define END_OF_INSTRUCTIONS 0
 #define SET_CELL 1
 #define SET_POS 2

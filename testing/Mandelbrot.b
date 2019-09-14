@@ -1,4 +1,4 @@
-#!/home/antonyjr/Developer/brainfuck/build/Brainfuck/bin/bf 
+#!/usr/bin/env brainfuck
      A mandelbrot set fractal viewer in brainf*** written by Erik Bosman
 +++++++++++++[->++>>>+++++>++>+<<<<<<]>>>>>++++++>--->>>>>>>>>>+++++++++++++++[[
 >>>>>>>>>]+[<<<<<<<<<]>>>>>>>>>-]+[>>>>>>>>[-]>]<<<<<<<<<[<<<<<<<<<]>>>>>>>>[-]+
