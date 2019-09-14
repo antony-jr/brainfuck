@@ -92,7 +92,8 @@ int *parse_str(const char *code) {
         case '.':
             if(r[pos] == PRINT_CELL) {
                 ++r[pos + 1];
-            }
+		continue;
+	    }
             r[(pos += 2)] = PRINT_CELL;
             r[pos + 1] = 1;
             used += 4;
@@ -100,6 +101,7 @@ int *parse_str(const char *code) {
         case ',':
             if(r[pos] == GET_CELL) {
                 ++r[pos + 1];
+		continue;
             }
             r[(pos += 2)] = GET_CELL;
             r[pos + 1] = 1;
@@ -204,6 +206,7 @@ int *parse_file(FILE *fp) {
         case '.':
             if(r[pos] == PRINT_CELL) {
                 ++r[pos + 1];
+		continue;
             }
             r[(pos += 2)] = PRINT_CELL;
             r[pos + 1] = 1;
@@ -212,6 +215,7 @@ int *parse_file(FILE *fp) {
         case ',':
             if(r[pos] == GET_CELL) {
                 ++r[pos + 1];
+		continue;
             }
             r[(pos += 2)] = GET_CELL;
             r[pos + 1] = 1;
