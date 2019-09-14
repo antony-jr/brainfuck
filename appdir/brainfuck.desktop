@@ -6,4 +6,3 @@ Comment=A brainfuck interpreter which is simple and a little fast.
 Icon=brainfuck
 Categories=Development;
 Terminal=true
-
