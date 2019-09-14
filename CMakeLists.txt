@@ -21,12 +21,14 @@ endif()
 add_executable(brainfuck src/stack.c
 			 src/executor.c
 			 src/parser.c
+			 src/interpreter.c
 			 src/main.c
 			 include/stack.h
 			 include/executor.h
-			 include/parser.h)
+			 include/parser.h
+			 include/interpreter.h)
 
-target_link_libraries(brainfuck PUBLIC m)
+target_link_libraries(brainfuck PUBLIC edit)
 target_include_directories(brainfuck PUBLIC . include)
 
 install(

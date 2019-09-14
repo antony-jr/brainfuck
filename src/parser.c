@@ -11,7 +11,7 @@ int *parse_str(const char *code) {
     int pos = 0,buf = 0,used = 0;
     stack_make_empty();
     while((c = *code++) != '\0' ) {
-	if(c != '+' &&
+        if(c != '+' &&
                 c != '-' &&
                 c != '<' &&
                 c != '>' &&
@@ -22,11 +22,13 @@ int *parse_str(const char *code) {
             continue;
         }
         if(used >= aval) {
+            /* TODO: find an optimal buffer size large enough so that we can seldom
+            *       this reallocation. */
             aval = used * 4;
             g = realloc(r, (sizeof(*r))*aval);
             if(!g) {
                 printf("fatal error: not enough memory.\n");
-		free(r);
+                free(r);
                 return NULL;
             }
             r = g;
@@ -73,14 +75,14 @@ int *parse_str(const char *code) {
             used += 4;
             if(stack_push(pos)) {
                 printf("fatal error: maximum loop depth reached.\n");
-		free(r);
+                free(r);
                 return NULL;
             }
             break;
         case ']':
             if(stack_pop(&buf)) {
                 printf("fatal error: unbalanced loop.\n");
-		free(r);
+                free(r);
                 return NULL;
             }
             r[(pos += 2)] = CLOSE_LOOP;
@@ -138,7 +140,7 @@ int *parse_file(FILE *fp) {
             g = realloc(r, (sizeof(*r))*aval);
             if(!g) {
                 printf("fatal error: not enough memory.\n");
-		free(r);
+                free(r);
                 return NULL;
             }
             r = g;
@@ -185,14 +187,14 @@ int *parse_file(FILE *fp) {
             used += 4;
             if(stack_push(pos)) {
                 printf("fatal error: maximum loop depth reached.\n");
-		free(r);
+                free(r);
                 return NULL;
             }
             break;
         case ']':
             if(stack_pop(&buf)) {
                 printf("fatal error: unbalanced loop.\n");
-		free(r);
+                free(r);
                 return NULL;
             }
             r[(pos += 2)] = CLOSE_LOOP;

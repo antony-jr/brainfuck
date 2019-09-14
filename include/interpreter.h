@@ -1,0 +1,4 @@
+#ifndef INTERPRETER_H_INCLUDED
+#define INTERPRETER_H_INCLUDED
+char *interpret();
+#endif /* INTERPRETER_H_INCLUDED */

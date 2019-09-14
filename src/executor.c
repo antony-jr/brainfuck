@@ -5,10 +5,11 @@
 #define TAPE_SIZE 30000
 #define LIMIT TAPE_SIZE-1
 static uint8_t tape[TAPE_SIZE] = {0};
+static int pos = 0;
 
 int exec(int *inst) {
     int iter = 2; /* the first instruction block is not used. */
-    int pos = 0,buf = 0;
+    int buf = 0;
     if(!inst) {
         return 0;
     }
