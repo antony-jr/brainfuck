@@ -20,7 +20,7 @@ script:
   - export VERSION="continuous"
   - ./linuxdeploy-x86_64.AppImage --appdir appdir --output appimage
   - wget https://raw.githubusercontent.com/probonopd/uploadtool/master/upload.sh
-  - bash upload.sh updatedeployqt*.bin updatedeployqt*.AppImage *zsync
+  - bash upload.sh brainfuck*.AppImage *zsync
 
 branches:
   except:
