@@ -1,0 +1,28 @@
+language: c
+compiler: gcc
+sudo: require
+dist: trusty
+
+before_install:
+  - sudo apt-get update -qq
+
+install:
+  - sudo apt-get -y install libedit cmake
+
+script:
+  - mkdir build
+  - cd build
+  - cmake -DCMAKE_INSTALL_PREFIX=/usr -DGIT_COMMIT_STR=$(git rev-parse --short HEAD) ..
+  - make -j$(nproc)
+  - make install DESTDIR=../appdir
+  - wget -q http://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+  - chmod +x linuxdeploy-x86_64.AppImage
+  - export VERSION="continuous"
+  - ./linuxdeploy-x86_64.AppImage --appdir appdir --output appimage
+  - wget https://raw.githubusercontent.com/probonopd/uploadtool/master/upload.sh
+  - bash upload.sh updatedeployqt*.bin updatedeployqt*.AppImage *zsync
+
+branches:
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)/

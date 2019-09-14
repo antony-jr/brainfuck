@@ -43,6 +43,7 @@ static char *interpret_private(const char *in, int lo) {
             ++iter;
         }
         p += iter;
+        free(buf2);
     }
     buf[p] = '\0';
     return buf;
